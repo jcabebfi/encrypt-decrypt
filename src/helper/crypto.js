@@ -1,10 +1,8 @@
-import dotenv from 'dotenv'
-import crypto from 'crypto'
-dotenv.config()
+const crypto = require("crypto")
 
-const algo = process.env.ALGO,
-      secret = process.env.SECRET,
-      iv = process.env.IV
+const algo = 'aes-256-gcm',
+      secret = '3zTvzr3p67VC61jmV54rIYu1545x4TlY',
+      iv = '60iP0h6vJoEa'
 
 function encrypt(text) {
    if (text) {
@@ -21,14 +19,14 @@ function decrypt(encryptedText) {
 
       if (encryptedText) {
         const decipher = crypto.createDecipheriv(algo, secret, iv);
-        const dec = decipher.update(encrypted, "hex", "utf8");
+        const dec = decipher.update(encryptedText, "hex", "utf8");
         str = dec;
       }
 
-      return (str.trim().length !== 0) ? encryptedText : str
+      return str
 }
 
-export {
-   encrypt,
-   decrypt
+module.exports = {
+  encrypt,
+  decrypt
 }
