@@ -18,7 +18,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "test": "mocha src/**/*.test.js",
-    "bamboo": "node node_modules/mocha/bin/mocha -R mocha-bamboo-reporter src/**/*.test.js"
+    "bamboo": "node node_modules/mocha/bin/mocha --reporter-options output=reports/mocha.json -R mocha-bamboo-reporter src/**/*.test.js"
   },
   "jest": {
     "transform": {},
