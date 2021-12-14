@@ -6,6 +6,7 @@
   "dependencies": {
     "crypto": "^1.0.1",
     "dotenv": "^10.0.0",
+    "mocha-bamboo-reporter": "^1.1.2",
     "moment": "^2.24.0"
   },
   "devDependencies": {
@@ -16,7 +17,8 @@
   },
   "scripts": {
     "dev": "nodemon src/index.js",
-    "test": "mocha src/**/*.test.js"
+    "test": "mocha src/**/*.test.js",
+    "bamboo": "node node_modules/mocha/bin/mocha -R mocha-bamboo-reporter"
   },
   "jest": {
     "transform": {},
