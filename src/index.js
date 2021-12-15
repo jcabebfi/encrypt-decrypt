@@ -14,5 +14,11 @@ app.listen(PORT, () => {
 })
 
 app.use('/encrypt', (req,res) => {
-  res.json
+  const { textArray } = req
+      , result = []
+  for (let text of textArray) {
+    result.push(encrypt(text))
+  }
+
+  res.status(200).send(result)
 })
