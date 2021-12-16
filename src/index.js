@@ -1,8 +1,6 @@
-
-import express from 'express'
-import dotenv from 'dotenv'
-import { encrypt, decrypt } from './helper/crypto'
-dotenv.config()
+const express = require('express')
+require('dotenv').config()
+const { encrypt, decrypt } = require('./helper/crypto')
 
 let app = express()
 const PORT = process.env.PORT
@@ -13,12 +11,22 @@ app.listen(PORT, () => {
   console.log(`Server is running on PORT:${PORT}` )
 })
 
-app.use('/encrypt', (req,res) => {
-  const { textArray } = req
+app.post('/encrypt', (req,res) => {
+  const { textArray } = req.body
       , result = []
   for (let text of textArray) {
     result.push(encrypt(text))
   }
 
-  res.status(200).send(result)
+  res.status(200).json(result)
+})
+
+app.post('/decrypt', (req,res) => {
+  const { textArray } = req.body
+      , result = []
+  for (let text of textArray) {
+    result.push(decrypt(text))
+  }
+
+  res.status(200).json(result)
 })

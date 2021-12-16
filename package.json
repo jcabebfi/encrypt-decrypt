@@ -16,6 +16,7 @@
     "nodemon": "^2.0.15"
   },
   "scripts": {
+    "start": "node src/index",
     "dev": "nodemon src/index.js",
     "test": "mocha src/**/*.test.js",
     "bamboo": "node node_modules/mocha/bin/mocha -R mocha-bamboo-reporter src/**/*.test.js"
