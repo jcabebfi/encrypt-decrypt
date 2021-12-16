@@ -30,3 +30,5 @@ app.post('/decrypt', (req,res) => {
 
   res.status(200).json(result)
 })
+
+console.log("HELLO")
